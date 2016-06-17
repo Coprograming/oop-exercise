@@ -28,10 +28,10 @@ class Brooks: Character {
     }
     
     var p1Loot: [String] {
-        return ["Lunch money", "Cookies", "Man Cards", "Dignity", "Virginity", "Hope"]
+        return ["Lunch money", "Cookies", "Man Card", "Dignity", "Virginity", "Hope"]
     }
 
-    var p1IsAlive: Bool {
+    var isAlive: Bool {
         get {
             if hp <= 0 {
                 return false
@@ -48,7 +48,7 @@ class Brooks: Character {
     }
     
     func dropLoot() -> String? {
-        if !p1IsAlive {
+        if !isAlive {
             let rand = Int(arc4random_uniform(UInt32(p1Loot.count)))
             return p1Loot[rand]
         }

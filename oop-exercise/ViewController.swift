@@ -39,7 +39,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        player1 = Brooks(name: "brooks", startingHp: 90, attackPwr: 9)
+        notReadyForPlay()
+        
+        player1 = Brooks(name: "brooks", startingHp: 100, attackPwr: 10)
         player2 = KC(name: "kc", startingHp: 100, attackPwr: 10)
         
         
@@ -85,14 +87,45 @@ class ViewController: UIViewController {
             
             print(error.debugDescription)
         }
+        
     }
     
-    @IBAction func onAttackP2Pressed(sender: AnyObject) {
+       @IBAction func onAttackP2Pressed(sender: AnyObject) {
         p2Attack()
-    }
+        
+        if player1.atemptAttack(player2.attackPwr){
+            printLbl.text = ""
+            printLbl.text = "\(player1.player1Name) Lost \(player1.hp) HP"
+        }else {
+            printLbl.text = "Attack was Unsuccessful"
+        }
+            if !player1.isAlive {
+                if let p2Loot = player1.dropLoot(){
+                    printLbl.text = "\(player1.player1Name) Lost His \(p2Loot)"
+                    justDied()
+                }
+            }
+        self.p1AttackBtn.enabled = false
+        NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(ViewController.enabledButton), userInfo: nil, repeats: false)
+        }
     
     @IBAction func onAttackP1Pressed(sender: AnyObject) {
         p1Attack()
+        
+        if player2.atemptAttack(player1.attackPwr) {
+            printLbl.text = "\(player2.player2name) Lost \(player2.hp) HP"
+        } else {
+            printLbl.text = "Attack was Unsuccessful"
+        }
+        if !player2.isAlive {
+            if let p1Loot = player2.dropLoot(){
+                printLbl.text = "\(player2.player2name) Lost His \(p1Loot)"
+                justDied()
+            }
+        }
+        self.p2AttackBtn.enabled = false
+        NSTimer.scheduledTimerWithTimeInterval(3, target: self, selector: #selector(ViewController.enableButton), userInfo: nil, repeats: false)
+        
     }
     
     func p2Attack() {
@@ -118,6 +151,7 @@ class ViewController: UIViewController {
         playerImgP1.hidden = true
         enemyImgP1.hidden = false
         p1AttackBtn.hidden = false
+        notReadyForPlay()
     }
     
     @IBAction func onP1PlayerSelectorPressed(sender: AnyObject) {
@@ -127,6 +161,7 @@ class ViewController: UIViewController {
         playerImgP1.hidden = false
         enemyImgP1.hidden = true
         p1AttackBtn.hidden = false
+        notReadyForPlay()
     }
     
     @IBAction func onP2EnemySelectorPressed(sender: AnyObject) {
@@ -136,6 +171,7 @@ class ViewController: UIViewController {
         playerImgP2.hidden = true
         enemyImgP2.hidden = false
         p2AttackBtn.hidden = false
+        notReadyForPlay()
     }
     
     @IBAction func onP2PlayerSelectorPressed(sender: AnyObject) {
@@ -145,19 +181,60 @@ class ViewController: UIViewController {
         playerImgP2.hidden = false
         enemyImgP2.hidden = true
         p2AttackBtn.hidden = false
+        notReadyForPlay()
     }
     
-    @IBAction func p1AttackPressed(sender: AnyObject) {
-        
-        if Brooks.atemptAttack(KC.attackPwr) {
-            printLbl.text = "Attacked \(Brooks) for \(Brooks.attackPwr) HP"
-        } else {
-            printLbl.text = "Attack was Unsuccessful"
+    func letsRestart() {
+        tapToRestart.hidden = false
+        p1AttackBtn.hidden = true
+        p2AttackBtn.hidden = true
+        enemyImgP2.hidden = true
+        enemyImgP1.hidden = true
+        playerImgP2.hidden = true
+        playerImgP1.hidden = true
+        viewDidLoad()
+    }
+    
+    func enableButton() {
+        self.p2AttackBtn.enabled = true
+    }
+    
+    func enabledButton() {
+        self.p1AttackBtn.enabled = true
+    }
+    
+    @IBAction func restartBtnPressed(sender: AnyObject) {
+        p2EnemySelector.hidden = false
+        p2PlayerSelector.hidden = false
+        p2OrSelector.hidden = false
+        playerImgP2.hidden = true
+        enemyImgP2.hidden = true
+        p2AttackBtn.hidden = true
+        p1enemyselector.hidden = false
+        p1PlayerSelector.hidden = false
+        p1OrSelector.hidden = false
+        playerImgP1.hidden = true
+        enemyImgP1.hidden = true
+        p1AttackBtn.hidden = true
+        tapToRestart.hidden = true
+    }
+    
+    func justDied() {
+        if !player1.isAlive {
+            letsRestart()
+        }else if !player2.isAlive {
+            letsRestart()
         }
     }
     
-    @IBAction func p2AttackPressed(sender: AnyObject) {
-        
+    func notReadyForPlay() {
+        if p2AttackBtn.hidden || p1AttackBtn.hidden {
+            p1AttackBtn.enabled = false
+            p2AttackBtn.enabled = false
+        } else if p2OrSelector.hidden && p1OrSelector.hidden {
+            p1AttackBtn.enabled = true
+            p2AttackBtn.enabled = true
+        }
     }
-    
 }
+    

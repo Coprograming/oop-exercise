@@ -34,7 +34,7 @@
                                 </variation>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ground" translatesAutoresizingMaskIntoConstraints="NO" id="Xz5-Cd-d72">
-                                <rect key="frame" x="0.0" y="543" width="554" height="57"/>
+                                <rect key="frame" x="-2" y="543" width="554" height="57"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="57" id="50m-dw-alL"/>
                                     <constraint firstAttribute="width" constant="600" id="JGP-Ef-wuR"/>
@@ -75,16 +75,17 @@
                                     </mask>
                                 </variation>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" background="text-holder" translatesAutoresizingMaskIntoConstraints="NO" id="rGU-q9-AOr">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="text-holder" translatesAutoresizingMaskIntoConstraints="NO" id="rGU-q9-AOr">
                                 <rect key="frame" x="49" y="552" width="502" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="pU9-fp-fXP"/>
                                     <constraint firstAttribute="width" constant="502" id="wZ5-2D-rUC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63e-VU-8Hw" userLabel="Player2 Attack">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="63e-VU-8Hw" userLabel="Player2Attack">
                                 <rect key="frame" x="426" y="290" width="122" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="122" id="YeY-7Z-v5C"/>
@@ -94,7 +95,6 @@
                                 <state key="normal" title="Attack" backgroundImage="player2attackbtn"/>
                                 <connections>
                                     <action selector="onAttackP2Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U9h-Ob-Jlj"/>
-                                    <action selector="p2AttackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Heg-5j-m6u"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GUe-ef-f1B" userLabel="Player1 Attack">
@@ -107,8 +107,6 @@
                                 <state key="normal" title="Attack" backgroundImage="player1attackbtn"/>
                                 <connections>
                                     <action selector="onAttackP1Pressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aGt-vY-Js6"/>
-                                    <action selector="onP2PlayerSelectorPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GlK-LB-9AA"/>
-                                    <action selector="p1AttackPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KB1-7N-una"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Hdi-xv-IUZ" userLabel="P1 selector">
@@ -201,7 +199,7 @@
                                 </variation>
                             </imageView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzV-lQ-TKK">
-                                <rect key="frame" x="49" y="552" width="502" height="48"/>
+                                <rect key="frame" x="49" y="352" width="502" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="502" id="1Si-Kh-jGk"/>
                                     <constraint firstAttribute="height" constant="56" id="OEm-3y-gtk"/>
@@ -217,6 +215,9 @@
                                         <exclude reference="Zkb-ID-1qX"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <action selector="restartBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3sZ-GT-z4A"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -236,7 +237,7 @@
                             <constraint firstItem="Xz5-Cd-d72" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UXd-ns-5g0"/>
                             <constraint firstItem="rGU-q9-AOr" firstAttribute="top" secondItem="FKK-De-QQc" secondAttribute="bottom" constant="8" id="VZX-h0-3r6"/>
                             <constraint firstItem="3yl-PK-hib" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="YH9-tw-4yX"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gzV-lQ-TKK" secondAttribute="bottom" id="aSt-ad-z0d"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gzV-lQ-TKK" secondAttribute="bottom" constant="200" id="aSt-ad-z0d"/>
                             <constraint firstAttribute="trailing" secondItem="3XR-Fs-Rlu" secondAttribute="trailing" constant="20" id="aZt-qk-zSq"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Xz5-Cd-d72" secondAttribute="bottom" id="bDm-S6-aZe"/>
                             <constraint firstAttribute="trailing" secondItem="Zp6-SA-785" secondAttribute="trailing" constant="18" id="bHc-Xk-dhv"/>
@@ -244,7 +245,7 @@
                             <constraint firstItem="5GV-z4-jbQ" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bz0-K6-Shu"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="3yl-PK-hib" secondAttribute="bottom" constant="56" id="crc-EH-1zF"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="rGU-q9-AOr" secondAttribute="bottom" id="eSO-7C-C7j"/>
-                            <constraint firstItem="Xz5-Cd-d72" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iwd-o1-oAn"/>
+                            <constraint firstItem="Xz5-Cd-d72" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="-2" id="iwd-o1-oAn"/>
                             <constraint firstItem="Bdp-ql-rci" firstAttribute="centerX" secondItem="63e-VU-8Hw" secondAttribute="centerX" id="kKh-JE-BSD"/>
                             <constraint firstItem="5GV-z4-jbQ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="kry-Ld-YCk"/>
                             <constraint firstItem="sVd-Cg-WPd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="499" id="lag-X0-jFK"/>
@@ -252,6 +253,11 @@
                             <constraint firstItem="GUe-ef-f1B" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="52" id="o9p-7c-LqC"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="sVd-Cg-WPd" secondAttribute="bottom" id="sEo-y6-yNn"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="UXd-ns-5g0"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="enemyImgP1" destination="3yl-PK-hib" id="Ohk-qA-shY"/>

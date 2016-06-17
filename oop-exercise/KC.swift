@@ -28,10 +28,10 @@ class KC: Character {
     }
     
     var p2Loot: [String] {
-        return ["WheelChairs", "Cooks", "Women", "Loosing Abilities", "Glue", "Hops"]
+        return ["WheelChair", "Cooks", "Women", "Loosing Abilities", "Glue", "Hops"]
     }
     
-    var p2IsAlive: Bool {
+    var isAlive: Bool {
         get {
             if hp <= 0 {
                 return false
@@ -49,7 +49,7 @@ class KC: Character {
     }
     
     func dropLoot() -> String? {
-        if !p2IsAlive {
+        if !isAlive {
             let rand = Int(arc4random_uniform(UInt32(p2Loot.count)))
             return p2Loot[rand]
         }

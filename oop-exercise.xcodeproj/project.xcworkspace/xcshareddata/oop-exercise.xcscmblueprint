@@ -1,0 +1,29 @@
+{
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "491D593C1B2DE7ECD241BE0EEB46B55DE46D38E1" : 0,
+    "A0231473077FE83AB5E139D66006C1E18E05B888" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "872932A9-D6DB-4163-ADAA-9CDCA3668E44",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "491D593C1B2DE7ECD241BE0EEB46B55DE46D38E1" : "..",
+    "A0231473077FE83AB5E139D66006C1E18E05B888" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : ".",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : ".",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Coprograming\/Calculator.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "491D593C1B2DE7ECD241BE0EEB46B55DE46D38E1"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Coprograming\/oop-exercise.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A0231473077FE83AB5E139D66006C1E18E05B888"
+    }
+  ]
+}
